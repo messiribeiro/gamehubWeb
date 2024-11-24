@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Documentação da API: GameDev Sponsor</title>
+  <style>
+    
+  </style>
+</head>
+<body>
+  <header>
+    <button id="logout" >
+      <p>sair</p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+  
+    </button>
+
+  </header>
+  <div class="container">
+    <h1>Documentação da API: GameDev Sponsor – Validação de Código do usuário</h1>
+    <p>
+      A API GameDev Sponsor – Validação de Código permite que os desenvolvedores verifiquem se um código fornecido corresponde a uma compra válida realizada por um usuário. 
+      Isso é útil para validar o usuário, o produto recebido ou outros dados relacionados. 
+    </p>
+    
+    <div class="api-key">
+      <h3>Sua chave de API:</h3>
+      <p title="Clique para copiar" id="key" onclick="copyApiKey()">fsdlihfgbdsljhfbdshljfdsbfldsfsdlihfgbdsljhfbdshljfdsbflds</p>
+    </div>
+    <h2>Base Url</h2>
+    <div class="box">
+      <pre>https://gamehub.com/api/gamedev/sponsor?apikey=SuaChaveDaApi</pre>
+    </div>
+
+    <h2>Autenticação</h2>
+    <p>
+      A autenticação para utilizar a API é feita por meio de um parâmetro na URL: o ID da compra referente ao código e sua chave de API.
+    </p>
+    <p>Exemplo de URL de Requisição:</p>
+    <div class="box">
+      <pre>https://gamehub.com/api/gamedev/sponsor/validate?ticket=abc123&amp;apikey=SuaChaveDaApi</pre>
+    </div>
+
+    <h2>Resposta da API</h2>
+    <p>A resposta será retornada no formato JSON:</p>
+    <div class="box">
+      <pre>      {
+        <span class="field">"status"</span>: <span class="value">"success"</span>,
+        <span class="field">"message"</span>: <span class="value">"Código validado com sucesso."</span>,
+        <span class="field">"userId"</span>: <span class="value">"12345"</span>,
+        <span class="field">"userName"</span>: <span class="value">"Nome do usuário"</span>,
+        <span class="field">"reward"</span>: <span class="value">false</span>,
+        <span class="field">"purchaseDate"</span>: <span class="value">"2024-10-10"</span>
+      }
+    </pre>
+    </div>
+
+    <h2>Campos da Resposta:</h2>
+    <ul>
+      <li><strong >status</strong> (string): Indica o sucesso ou erro.</li>
+      <li><strong>message</strong> (string): Mensagem explicativa.</li>
+      <li><strong>userId</strong> (string): ID do usuário.</li>
+      <li><strong>userName</strong> (string): Nome do usuário.</li>
+      <li><strong>reward</strong> (boolean): Se houve recompensa associada.</li>
+      <li><strong>purchaseDate</strong> (string): Data da compra.</li>
+    </ul>
+
+    <h2>Erros Comuns</h2>
+    <ul>
+      <li><span class="error">Erro 400:</span> Código de validação inválido ou mal formatado.</li>
+      <li><span class="error">Erro 404:</span> Código de validação não encontrado no sistema.</li>
+      <li><span class="error">Erro 500:</span> Erro interno no servidor.</li>
+    </ul>
+  </div>
+
+  <script>
+    function copyApiKey() {
+      const keyElement = document.getElementById("key");
+      const feedback = document.getElementById("feedback");
+
+      // Copiar a chave para a área de transferência
+      navigator.clipboard.writeText(keyElement.textContent).then(() => {
+        feedback.textContent = "Chave copiada para a área de transferência!";
+        setTimeout(() => {
+          feedback.textContent = "";
+        }, 3000);
+      });
+    }
+
+    const token = localStorage.getItem("jwtToken");
+    const p = document.querySelector("#key")
+    p.innerHTML = token
+
+    const logoutButton = document.querySelector("#logout")
+    logoutButton.addEventListener("click", ()=> {
+      localStorage.clear()
+      window.location.href = "../../"
+    })
+  </script>
+</body>
+</html>

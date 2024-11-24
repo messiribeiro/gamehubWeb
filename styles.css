@@ -1,0 +1,99 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: white;
+  
+}
+
+body{
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr 10fr 1fr;
+  background-color: #1B1B1E;
+}
+header{
+  background-color: #5300E5;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header p {
+  cursor: pointer;
+  transition: 0.2s color;
+
+}
+
+header p:hover {
+  color: rgb(196, 196, 196);
+}
+
+#logo{
+  width: 40px;
+
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 40px;
+}
+
+#title{
+  width: 70%;
+  font-size: 35pt;
+}
+
+#subtitle {
+  width: 50%;
+  font-weight: 200;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+
+}
+button {
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+}
+
+#button1 {
+  background-color: #5312C2;
+  border: none;
+  transition: 0.4s background-color;
+}
+#button1:hover {
+  background-color: #2a0766;
+
+}
+
+#button2 {
+  background-color: transparent;
+  border: none;
+  border: 1px solid #5312C2;
+  transition: 0.4s background-color;
+
+}
+
+#button2:hover {
+  background-color: #210257;
+
+}
