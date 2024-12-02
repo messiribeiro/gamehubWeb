@@ -21,13 +21,58 @@
       </div>
     </header>
     <main>
-      <h1 id="title" >Participe de comunidades, conheça pessoas e divulgue seus jogos</h1>
-      <h3 id="subtitle" >Uma plataforma onde você encontra pessoas que compartilham sua paixão por jogos, participa de comunidades dedicadas aos seus títulos favoritos e, se você é um game dev, ainda tem a chance de gerar renda extra</h3>
-      <div class="buttons">
-        <button id="button1" >Participar</button>
-        <button id="button2" >Saiba mais</button>
-      </div>
+      <section id="informations">
+        <h1 id="title" >Participe de comunidades, conheça pessoas e divulgue seus jogos</h1>
+        <h3 id="subtitle" >Uma plataforma onde você encontra pessoas que compartilham sua paixão por jogos, participa de comunidades dedicadas aos seus títulos favoritos e, se você é um game dev, ainda tem a chance de gerar renda extra</h3>
+        <div class="buttons">
+          <button id="button1" >Participar</button>
+          <button id="button2" >Saiba mais</button>
+        </div>
+      </section>
+      <section id="video">
+        <video 
+          id="videoComercial" 
+          src="./assets/videoComercial.mp4" 
+          autoplay  
+          muted
+          loop 
+          >
+        </video>
+      </section>
+      
     </main>
     <footer></footer>
+
+    <script>
+      const video = document.getElementById('videoComercial');
+  
+      // Clique simples alterna o som
+      video.addEventListener('click', () => {
+        video.muted = !video.muted;
+      });
+  
+      // Clique duplo reinicia o vídeo ou coloca em tela cheia
+      video.addEventListener('dblclick', () => {
+        if (!document.fullscreenElement) {
+          // Coloca o vídeo em tela cheia
+          if (video.requestFullscreen) {
+            video.requestFullscreen();
+          } else if (video.webkitRequestFullscreen) { // Para navegadores como Safari
+            video.webkitRequestFullscreen();
+          } else if (video.msRequestFullscreen) { // Para navegadores mais antigos
+            video.msRequestFullscreen();
+          }
+        } else {
+          // Sai do modo tela cheia
+          if (document.exitFullscreen) {
+            document.exitFullscreen();
+          } else if (document.webkitExitFullscreen) { // Para navegadores como Safari
+            document.webkitExitFullscreen();
+          } else if (document.msExitFullscreen) { // Para navegadores mais antigos
+            document.msExitFullscreen();
+          }
+        }
+      });
+    </script>
 </body>
 </html>

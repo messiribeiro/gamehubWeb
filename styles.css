@@ -47,11 +47,31 @@ header p:hover {
 
 main {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   text-align: center;
   gap: 40px;
+}
+
+main section#video {
+}
+
+main section#video video {
+  width: 100%;
+  max-width: 300px;
+  cursor: pointer;
+  border-radius: 10px;
+  position: relative;
+  left: -150px;
+}
+
+main section#informations{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 60%;
+  align-items: center;
 }
 
 #title{
